@@ -1,0 +1,16 @@
+@startuml
+title BookingServiceApiShould - book an allowed and available hotel successfully
+participant "BookingService"
+participant "booking-policy"
+participant "hotel"
+"BookingService" -> "booking-policy": GET v1/booking-allowed/{employeeId}/{roomType}
+activate "booking-policy"
+
+"booking-policy" -[#DarkGreen]> "BookingService": <color:DarkGreen> 200 OK
+deactivate "booking-policy"
+"BookingService" -> "hotel": GET v1/hotels/{hotelId}
+activate "hotel"
+
+"hotel" -[#DarkGreen]> "BookingService": <color:DarkGreen> 200 OK
+deactivate "hotel"
+@enduml

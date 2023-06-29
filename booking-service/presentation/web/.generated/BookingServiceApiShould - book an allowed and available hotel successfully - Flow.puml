@@ -1,0 +1,12 @@
+@startuml
+title BookingServiceApiShould - book an allowed and available hotel successfully
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+
+Container(BookingService, "BookingService")
+Container(bookingpolicy, "booking-policy")
+Container(hotel, "hotel")    
+Rel_D(BookingService, bookingpolicy, "1 GET v1/booking-allowed/{employeeId}/{roomType}")
+Rel_D(BookingService, hotel, "2 GET v1/hotels/{hotelId}")    
+@enduml
