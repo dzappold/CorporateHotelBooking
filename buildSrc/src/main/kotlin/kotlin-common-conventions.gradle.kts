@@ -2,6 +2,8 @@ import io.gitlab.arturbosch.detekt.Detekt
 import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_1
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
     java
@@ -59,16 +61,7 @@ tasks {
     }
 
     withType<Jar>().configureEach {
-
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
-//        manifest {
-//            attributes["Main-Class"] = "ServerKt"
-//        }
-//
-//        configurations["compileClasspath"].forEach { file: File ->
-//            from(zipTree(file.absoluteFile))
-//        }
     }
 
     withType<Test>().configureEach {
@@ -97,18 +90,16 @@ tasks {
         }
     }
 
-//    withType<KotlinCompile> {
-//        compilerOptions {
-//            freeCompilerArgs.set(
-//                listOf(
-//                    "-Xcontext-receivers",
-//                    "-Xjsr305=strict"
-//                )
-//            )
-//            jvmTarget.set(JVM_17)
-//            languageVersion.set(KOTLIN_2_0)
-//        }
-//    }
+    withType<KotlinJvmCompile>().configureEach {
+        compilerOptions {
+            freeCompilerArgs.set(
+                listOf(
+                    "-Xjsr305=strict",
+                )
+            )
+            languageVersion.set(KOTLIN_2_1)
+        }
+    }
 
     withType<Detekt>().configureEach {
         // Target version of the generated JVM bytecode. It is used for type resolution.
