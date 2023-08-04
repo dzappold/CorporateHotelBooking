@@ -3,8 +3,11 @@ package scenarios
 import actors.CompanyAdmin
 import actors.Employee
 import actors.HotelManager
+import eu.grand.hotel.core.Booking
+import eu.grand.hotel.core.Hotel
+import eu.grand.hotel.core.HotelName
 import eu.grand.hotel.core.NumberOfRooms
-import eu.grand.hotel.core.RoomType
+import eu.grand.hotel.core.ResidencePeriod
 import eu.grand.hotel.core.RoomType.SINGLE
 import eu.grand.hotel.core.roomTypesOf
 import io.kotest.matchers.shouldBe
@@ -25,8 +28,11 @@ interface BookAvailableRoomScenario {
         cora.addEmployee(emilia.employeeId)
         cora.setCompanyBookingPolicy(roomTypesOf(SINGLE))
 
-        val booking = emilia.book(SINGLE, today.minusMonths(3), today.minusMonths(2))
-        // TODO: was soll das booking enthalten und was wollen wir hier testen?
-        booking.roomType shouldBe SINGLE
+        val checkIn = today.minusMonths(3)
+        val checkOut = today.minusMonths(2)
+
+        val booking = emilia.book(SINGLE, checkIn, checkOut)
+
+        booking shouldBe Booking(Hotel(HotelName("unknown")), SINGLE, ResidencePeriod(checkIn, checkOut))
     }
 }

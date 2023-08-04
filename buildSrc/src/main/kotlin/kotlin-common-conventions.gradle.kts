@@ -2,7 +2,7 @@ import io.gitlab.arturbosch.detekt.Detekt
 import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
-import org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_1
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0
 import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
@@ -92,12 +92,8 @@ tasks {
 
     withType<KotlinJvmCompile>().configureEach {
         compilerOptions {
-            freeCompilerArgs.set(
-                listOf(
-                    "-Xjsr305=strict",
-                )
-            )
-            languageVersion.set(KOTLIN_2_1)
+            freeCompilerArgs.set(listOf("-Xjsr305=strict"))
+            languageVersion.set(KOTLIN_2_0)
         }
     }
 

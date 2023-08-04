@@ -17,5 +17,4 @@ object Json : ConfigurableJackson(
         .value(EmployeeId)
         .value(CompanyId)
         .done()
-
 )

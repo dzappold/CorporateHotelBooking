@@ -1,5 +1,6 @@
 package eu.grand.hotel.core.app
 
+import org.http4k.events.EventFilters.AddEventName
 import org.http4k.events.EventFilters.AddServiceName
 import org.http4k.events.EventFilters.AddTimestamp
 import org.http4k.events.EventFilters.AddZipkinTraces
@@ -11,4 +12,5 @@ fun AppEvents(name: String, clock: Clock, base: Events) =
     AddZipkinTraces()
         .then(AddServiceName(name))
         .then(AddTimestamp(clock))
+        .then(AddEventName())
         .then(base)

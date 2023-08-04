@@ -9,10 +9,7 @@ plugins {
 tasks {
     withType<DependencyUpdatesTask> {
         rejectVersionIf {
-            this.candidate.version.contains("alpha", ignoreCase = true) ||
-                    this.candidate.version.contains("beta", ignoreCase = true) ||
-                    this.candidate.version.contains("rc", ignoreCase = true) ||
-                    this.candidate.version.contains("m", ignoreCase = true)
+            isUnstableVersion(candidate.version)
         }
 
         // optional parameters
@@ -20,5 +17,13 @@ tasks {
         outputFormatter = "json"
         outputDir = "build/dependencyUpdates"
         reportfileName = "report"
+    }
+}
+
+fun isUnstableVersion(version: String): Boolean {
+    val unstableKeywords = listOf("alpha", "beta", "rc", "m")
+
+    return unstableKeywords.any { keyword ->
+        version.contains(keyword, ignoreCase = true)
     }
 }

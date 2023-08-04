@@ -14,10 +14,10 @@ import eu.grand.hotel.bookingservice.ports.BookingPolicyService
 import eu.grand.hotel.bookingservice.ports.HotelService
 import eu.grand.hotel.core.Hotel
 import eu.grand.hotel.core.HotelId
+import eu.grand.hotel.core.HotelName
 import eu.grand.hotel.core.RoomType.DOUBLE
 import eu.grand.hotel.core.RoomType.SINGLE
 import eu.grand.hotel.core.roomTypesOf
-import io.kotest.assertions.fail
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -31,7 +31,7 @@ private val hotelId = HotelId.of("cba27b00-0eec-43ef-953e-3123e8048735")
 
 class BookingServiceShould : BookAvailableRoomScenario {
     private val bookingService =
-        BookingService(BookingPolicyService.FakeBookingPolicyService(roomTypesOf(SINGLE, DOUBLE)), HotelService.FakeHotelService(mapOf(hotelId to Hotel())))
+        BookingService(BookingPolicyService.FakeBookingPolicyService(roomTypesOf(SINGLE, DOUBLE)), HotelService.FakeHotelService(mapOf(hotelId to Hotel(HotelName("nursery")))))
 
     override val emilia: Employee = Employee.DomainEmployee(bookingService, hotelId = hotelId)
     override val helga: HotelManager = HotelManager.DomainHotelManager()

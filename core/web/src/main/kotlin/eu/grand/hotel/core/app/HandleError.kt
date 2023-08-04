@@ -13,7 +13,7 @@ fun HandleError(events: Events) =
     CatchAll {
         events(Error("uncaught!", it))
         Response(SERVICE_UNAVAILABLE)
-    }.then(CatchLensFailure { request, lensFailure ->
+    }.then(CatchLensFailure { _, lensFailure ->
         events(Error(lensFailure.message.orEmpty(), lensFailure))
         Response(BAD_REQUEST)
     })

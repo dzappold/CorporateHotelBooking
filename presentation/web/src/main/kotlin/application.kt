@@ -4,7 +4,6 @@ import dev.forkhandles.result4k.asResultOr
 import dev.forkhandles.result4k.map
 import dev.forkhandles.result4k.recover
 import org.http4k.cloudnative.asK8sServer
-import org.http4k.contract.openapi.OpenAPIJackson.auto
 import org.http4k.core.Body
 import org.http4k.core.Filter
 import org.http4k.core.HttpHandler
