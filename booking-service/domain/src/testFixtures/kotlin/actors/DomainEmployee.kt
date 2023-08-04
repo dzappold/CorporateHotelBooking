@@ -10,8 +10,8 @@ import java.time.LocalDate
 
 fun Employee.Companion.DomainEmployee(
     bookingService: BookingService,
-    employeeId: EmployeeId = EmployeeId.of("e160aeb0-8050-4f27-87ce-0e258efd7488"),
-    hotelId: HotelId = HotelId.of("1836f83b-42f8-4868-99de-706c7fc9698e")
+    employeeId: EmployeeId = EmployeeId("e160aeb0-8050-4f27-87ce-0e258efd7488"),
+    hotelId: HotelId = HotelId("1836f83b-42f8-4868-99de-706c7fc9698e")
 ): Employee =
     object : Employee {
         override val employeeId: EmployeeId = employeeId

@@ -1,69 +1,60 @@
-# Use JUnit and kotest for testing
+# ADR-0006: Use JUnit and Kotest for Testing
 
-- Status: [proposed | rejected | accepted | deprecated | ... | superseded by ADR-0005]
-- Deciders: [list everyone involved in the decision]
-- Date: [YYYY-MM-DD when the decision was last updated]
-- Technical Story: [description | ticket/issue URL]
+- Status: Accepted
+- Deciders: [List everyone involved in the decision]
+- Date: [YYYY-MM-DD e.g., 2023-01-01]
+- Technical Story: [Description or ticket/issue URL]
 
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+As we are building software that is robust and reliable, it is necessary to have a testing strategy in place. So, the question is: "Which testing libraries should be used for our
+Kotlin project?"
 
 ## Considered Options:
 
 - JUnit
-- kotest
-- hamkrest
-- strikt
-- mockk
-- mockito
+- Kotest
+- Hamkrest
+- Strikt
+- MockK
+- Mockito
 
 ## Decision Outcome:
 
-Chosen option: "[option 1]",
-because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | ... | comes out best (see below)].
+Chosen option: "JUnit and Kotest", because they provide well-rounded, feature-rich, and mature solutions well-suited for writing and running tests in a Kotlin project.
 
 ## Consequences:
 
-- Positive Consequences
-    - [e.g., improvement of quality attribute satisfaction, follow-up decisions required, ...]
-    - ...
-- Negative Consequences
-    - [e.g., compromising quality attributes, follow-up decision required, ...]
-    - ...
+**Positive Consequences**
 
-## Open Questions -> Remarks:
+- JUnit is a reliable and well-known library, offering broad IDE integration and a wealth of online resources.
+- Kotest provides a flexible and feature-rich environment that supports multiple testing styles with a Kotlin idiomatic API.
+
+**Negative Consequences**
+
+- The learning curve might be steeper for team members not familiar with JUnit and Kotest.
+- Integration of multiple testing libraries could increase the complexity of test cases.
 
 ## Pros and Cons of the Options:
 
-### [option 1]
+### JUnit
 
-[example | description | pointer to more information | ...]
+- Good, because it's widely-used, stable, and has a rich set of assertions and testing functionalities.
+- Good, because it is supported out of the box by all major IDEs and build tools.
+- Bad, because its syntax and API are not always very Kotlin-friendly.
 
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-- ...
+### Kotest
 
-### [option 2]
+- Good, because it's a Kotlin-specific testing framework with idiomatic and easy-to-use syntax.
+- Good, because it has powerful assertions and supports Behavior-Driven Development (BDD) style.
+- Bad, because newcomers to the framework might have a steep learning curve.
 
-[example | description | pointer to more information | ...]
+### Other Libraries (Hamkrest, Strikt, MockK, Mockito)
 
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-- ...
-
-### [option 3]
-
-[example | description | pointer to more information | ...]
-
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-- ...
+- Good, provide alternative testing styles and assertion libraries for Kotlin.
+- Bad, could lead to inconsistencies in test cases if not used correctly, reduce the learning curve.
 
 ## Links:
 
-- [Link type] [Link to ADR]
-- [Link ...] (http://URL)
+- [JUnit Documentation](https://junit.org/junit5/docs/current/user-guide/)
+- [Kotest Documentation](https://kotest.io/docs/framework/framework.html)

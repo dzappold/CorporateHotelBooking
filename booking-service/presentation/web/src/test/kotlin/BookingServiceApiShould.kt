@@ -40,7 +40,7 @@ private const val BOOKING_POLICY = "booking-policy"
 private const val HOTEL = "hotel"
 
 class BookingServiceApiShould : RecordTraces(), BookAvailableRoomScenario {
-    private val hotelId = HotelId.of("b9b1a762-79a5-486e-9490-363d8fa6e2cd")
+    private val hotelId = HotelId("b9b1a762-79a5-486e-9490-363d8fa6e2cd")
     private val env = Environment.defaults(
         BOOKING_POLICY_SERVICE_URL of Uri.of("http://$BOOKING_POLICY:7777"),
         HOTEL_SERVICE_URL of Uri.of("http://$HOTEL:8888")

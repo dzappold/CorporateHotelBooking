@@ -1,66 +1,59 @@
-# Error Handling by using Result4K
+# ADR-0005: Error Handling by using Result4K
 
-- Status: [proposed | rejected | accepted | deprecated | ... | superseded by ADR-0005]
-- Deciders: [list everyone involved in the decision]
-- Date: [YYYY-MM-DD when the decision was last updated]
-- Technical Story: [description | ticket/issue URL]
+- Status: Accepted
+- Deciders: [List everyone involved in the decision]
+- Date: [YYYY-MM-DD e.g., 2023-01-01]
+- Technical Story: [Description or ticket/issue URL]
 
 ## Context and Problem Statement
 
-[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+In our software development process, it is necessary to decide on how to handle errors. How should our program communicate failure situations?
 
 ## Considered Options:
 
-- null's
-- exceptions
-- result objects
+- Using nulls
+- Throwing exceptions
+- Returning result objects with the help of Result4K library
 
 ## Decision Outcome:
 
-Chosen option: "[option 1]",
-because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | ... | comes out best (see below)].
+Chosen option: "Returning result objects with the help of Result4K library", because it enforces explicit error handling and reduces the possibilities of unhandled exceptions,
+thereby improving the overall robustness of our software product.
 
 ## Consequences:
 
-- Positive Consequences
-    - [e.g., improvement of quality attribute satisfaction, follow-up decisions required, ...]
-    - ...
-- Negative Consequences
-    - [e.g., compromising quality attributes, follow-up decision required, ...]
-    - ...
+**Positive Consequences**
 
-## Open Questions -> Remarks:
+- Makes error handling explicit, reducing the chances of unhandled failure cases.
+- Coding to interfaces becomes easier with the use of Result4K as it uses sealed classes.
+- Better maintains the flow of the program compared to throwing exceptions which are disruptive.
+
+**Negative Consequences**
+
+- Using Result4K result objects might introduce a slightly higher complexity in the codebase.
+- Developers might require time to adapt to this non-traditional way of handling errors.
 
 ## Pros and Cons of the Options:
 
-### [option 1]
+### Using nulls
 
-[example | description | pointer to more information | ...]
+- Good, because it's the simplest form of error indication.
+- Good, because it's easy to check whether a value is null or not.
+- Bad, because it may lead to NullPointer exceptions if not handled properly.
 
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-- ...
+### Throwing exceptions
 
-### [option 2]
+- Good, because exceptions provide detailed error information.
+- Good, because it aborts the current operation as soon as any error occurs.
+- Bad, because unhandled exceptions can cause the program to crash.
 
-[example | description | pointer to more information | ...]
+### Returning result objects (Result4K)
 
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-- ...
-
-### [option 3]
-
-[example | description | pointer to more information | ...]
-
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-- ...
+- Good, because it makes error handling explicit and forces the developer to deal with it.
+- Good, because it provides a safer way to handle errors and allows for more control over the flow of the program.
+- Bad, because it involves a higher level of complexity compared to nulls and exceptions.
 
 ## Links:
 
-- [Link type] [Link to ADR]
-- [Link ...] (http://URL)
+- [Result4K Library](https://github.com/npryce/result4k)
+- [Exception Handling: Best Practices and Guidelines](https://www.oreilly.com/library/view/java-9-best/9781484225917/A457540_1_En_2_Chapter.html)

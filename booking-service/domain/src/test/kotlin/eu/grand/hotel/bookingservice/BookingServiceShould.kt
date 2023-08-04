@@ -27,7 +27,7 @@ import org.junit.jupiter.api.Test
 import scenarios.BookAvailableRoomScenario
 import java.time.LocalDate
 
-private val hotelId = HotelId.of("cba27b00-0eec-43ef-953e-3123e8048735")
+private val hotelId = HotelId("cba27b00-0eec-43ef-953e-3123e8048735")
 
 class BookingServiceShould : BookAvailableRoomScenario {
     private val bookingService =

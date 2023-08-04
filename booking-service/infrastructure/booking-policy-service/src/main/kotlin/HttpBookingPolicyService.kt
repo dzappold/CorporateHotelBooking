@@ -16,13 +16,13 @@ import org.http4k.filter.ClientFilters
 import org.http4k.format.Jackson.auto
 import org.http4k.lens.Path
 import org.http4k.lens.enum
-import org.http4k.lens.value
+import org.http4k.lens.nonEmptyString
 
 fun BookingPolicyService.Companion.Http(bookingPolicyServiceUri: Uri, rawHttp: HttpHandler): BookingPolicyService =
     object : BookingPolicyService {
         private val http = ClientFilters.SetHostFrom(bookingPolicyServiceUri).then(rawHttp)
         private val isBookingAllowed = Body.auto<Boolean>().toLens()
-        private val employeeIdLens = Path.value(EmployeeId).of("employeeId")
+        private val employeeIdLens = Path.nonEmptyString().map(::EmployeeId, EmployeeId::value).of("employeeId")
         private val roomTypeLens = Path.enum<RoomType>(caseSensitive = false).of("roomType")
 
         override fun isBookingAllowed(employeeId: EmployeeId, roomType: RoomType): Result4k<Boolean, BookingServiceError> =
