@@ -5,7 +5,6 @@ import actors.Employee
 import actors.HotelManager
 import eu.grand.hotel.core.Booking
 import eu.grand.hotel.core.Hotel
-import eu.grand.hotel.core.HotelName
 import eu.grand.hotel.core.NumberOfRooms
 import eu.grand.hotel.core.ResidencePeriod
 import eu.grand.hotel.core.RoomType.SINGLE
@@ -18,6 +17,8 @@ interface BookAvailableRoomScenario {
     val helga: HotelManager
     val cora: CompanyAdmin
     val emilia: Employee
+
+    val expectedHotel: Hotel
 
     @Test
     fun `book a available single bed room according company policy`() {
@@ -33,6 +34,6 @@ interface BookAvailableRoomScenario {
 
         val booking = emilia.book(SINGLE, checkIn, checkOut)
 
-        booking shouldBe Booking(Hotel(HotelName("unknown")), SINGLE, ResidencePeriod(checkIn, checkOut))
+        booking shouldBe Booking(expectedHotel, SINGLE, ResidencePeriod(checkIn, checkOut))
     }
 }

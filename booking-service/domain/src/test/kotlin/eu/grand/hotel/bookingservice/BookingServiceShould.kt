@@ -30,8 +30,9 @@ import java.time.LocalDate
 private val hotelId = HotelId("cba27b00-0eec-43ef-953e-3123e8048735")
 
 class BookingServiceShould : BookAvailableRoomScenario {
+    override val expectedHotel: Hotel = Hotel(HotelName("nursery"))
     private val bookingService =
-        BookingService(BookingPolicyService.FakeBookingPolicyService(roomTypesOf(SINGLE, DOUBLE)), HotelService.FakeHotelService(mapOf(hotelId to Hotel(HotelName("nursery")))))
+        BookingService(BookingPolicyService.FakeBookingPolicyService(roomTypesOf(SINGLE, DOUBLE)), HotelService.FakeHotelService(mapOf(hotelId to expectedHotel)))
 
     override val emilia: Employee = Employee.DomainEmployee(bookingService, hotelId = hotelId)
     override val helga: HotelManager = HotelManager.DomainHotelManager()

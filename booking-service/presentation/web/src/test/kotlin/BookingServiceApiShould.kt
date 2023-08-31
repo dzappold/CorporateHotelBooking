@@ -23,8 +23,6 @@ import org.http4k.core.Status.Companion.OK
 import org.http4k.core.Uri
 import org.http4k.kotest.haveBody
 import org.http4k.kotest.haveStatus
-import org.http4k.kotest.shouldHaveBody
-import org.http4k.kotest.shouldHaveStatus
 import org.http4k.routing.reverseProxy
 import org.junit.jupiter.api.Test
 import scenarios.BookAvailableRoomScenario
@@ -41,30 +39,38 @@ private const val HOTEL = "hotel"
 
 class BookingServiceApiShould : RecordTraces(), BookAvailableRoomScenario {
     private val hotelId = HotelId("b9b1a762-79a5-486e-9490-363d8fa6e2cd")
+    override val expectedHotel: Hotel = Hotel(HotelName("Youth Hostel"))
+    private val clock = Clock.fixed(Instant.EPOCH, ZoneId.systemDefault())
+    private val checkIn: LocalDate = LocalDate.of(2023, Month.APRIL, 17)
+    private val checkOut: LocalDate = LocalDate.of(2023, Month.APRIL, 23)
+
+
     private val env = Environment.defaults(
         BOOKING_POLICY_SERVICE_URL of Uri.of("http://$BOOKING_POLICY:7777"),
         HOTEL_SERVICE_URL of Uri.of("http://$HOTEL:8888")
     )
-    private val clock = Clock.fixed(Instant.EPOCH, ZoneId.systemDefault())
     private val http: HttpHandler = reverseProxy(
         BOOKING_POLICY to BookingPolicyService.FakeHttpBookingPolicyService(roomTypesOf(SINGLE, DOUBLE)),
-        HOTEL to HotelService.FakeHttpHotelService(mapOf(hotelId to Hotel(HotelName("Youth Hostel")))),
+        HOTEL to HotelService.FakeHttpHotelService(mapOf(hotelId to expectedHotel)),
     )
-    private val checkIn: LocalDate = LocalDate.of(2023, Month.APRIL, 17)
-    private val checkOut: LocalDate = LocalDate.of(2023, Month.APRIL, 23)
 
     @Test
     fun `book an allowed and available hotel successfully`() {
         val client = BookingServiceApi(env, clock, events, http)
 
-        val response = client(Request(GET, "/v1/bookings/employeeId/${hotelId.value}/double/${ISO_LOCAL_DATE.format(checkIn)}/${ISO_LOCAL_DATE.format(checkOut)}"))
+        val response = client(
+            Request(
+                GET,
+                "/v1/bookings/employeeId/${hotelId.value}/double/${ISO_LOCAL_DATE.format(checkIn)}/${
+                    ISO_LOCAL_DATE.format(
+                        checkOut
+                    )
+                }"
+            )
+        )
 
         // TODO: more detailed test
-        response should {
-            haveStatus(OK) and haveBody("something")
-        }
-        response shouldHaveStatus OK
-        response shouldHaveBody "some thing"
+        response should (haveStatus(OK) and haveBody("me ..."))
     }
 
     override val helga: HotelManager
