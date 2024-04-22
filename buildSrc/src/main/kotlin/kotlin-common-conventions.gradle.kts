@@ -24,7 +24,6 @@ val forkhandlesVersion: String by project
 val junitVersion: String by project
 val kotestVersion: String by project
 val kotlinVersion: String by project
-val kurePotlinVersion: String by project
 val mockkVersion: String by project
 
 dependencies {
@@ -51,8 +50,6 @@ dependencies {
     testFixturesApi(platform("io.kotest:kotest-bom:$kotestVersion"))
     testFixturesApi("io.kotest:kotest-assertions-core")
     testFixturesApi("io.kotest:kotest-assertions-json")
-
-    detektPlugins("pl.setblack:kure-potlin:$kurePotlinVersion")
 }
 
 tasks {
