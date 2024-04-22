@@ -13,6 +13,7 @@ import eu.grand.hotel.core.RoomType
 import eu.grand.hotel.core.RoomType.DOUBLE
 import eu.grand.hotel.core.RoomType.SINGLE
 import eu.grand.hotel.core.roomTypesOf
+import io.kotest.assertions.asClue
 import io.kotest.matchers.and
 import io.kotest.matchers.should
 import org.http4k.cloudnative.env.Environment
@@ -70,7 +71,9 @@ class BookingServiceApiShould : RecordTraces(), BookAvailableRoomScenario {
         )
 
         // TODO: more detailed test
-        response should (haveStatus(OK) and haveBody("me ..."))
+        "booking service response:".asClue {
+            response should (haveStatus(OK) and haveBody("me ..."))
+        }
     }
 
     override val helga: HotelManager
