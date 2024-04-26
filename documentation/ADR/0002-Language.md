@@ -1,4 +1,4 @@
-# ADR-0001: Adopt Kotlin as the Primary Programming Language
+# Adopt Kotlin as the Primary Programming Language
 
 - Status: Accepted
 - Deciders: Daniel

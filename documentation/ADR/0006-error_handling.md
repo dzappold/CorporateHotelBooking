@@ -1,4 +1,4 @@
-# ADR-0005: Error Handling by using Result4K
+# Error Handling by using Result4K
 
 - Status: Accepted
 - Deciders: [List everyone involved in the decision]

@@ -1,4 +1,4 @@
-# ADR-0004: Adoption of Hexagonal Architecture
+# Adoption of Hexagonal Architecture
 
 - Status: Accepted
 - Deciders: [System Architect, Domain Expert, Development Team, ...]

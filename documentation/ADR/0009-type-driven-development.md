@@ -1,4 +1,4 @@
-# ADR-0007: Use Tiny Types and Sum Types in Domain Modeling
+# Use Tiny Types and Sum Types in Domain Modeling
 
 - Status: Accepted
 - Deciders: [List everyone involved in the decision]

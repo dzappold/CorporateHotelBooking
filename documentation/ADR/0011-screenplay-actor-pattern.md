@@ -1,4 +1,4 @@
-# ADR-0008: Use Screenplay-Actor Pattern for Test Automation
+# Use Screenplay-Actor Pattern for Test Automation
 
 - Status: Accepted
 - Deciders: [List everyone involved in the decision]

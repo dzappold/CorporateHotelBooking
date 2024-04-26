@@ -1,4 +1,4 @@
-# ADR-0002: Adoption of Gradle as Build System
+# Adoption of Gradle as Build System
 
 - Status: Accepted
 - Deciders: Daniel

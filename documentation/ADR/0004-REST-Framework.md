@@ -1,4 +1,4 @@
-# ADR-0003: Http4k as REST Framework
+# Http4k as REST Framework
 
 - Status: Accepted
 - Deciders: Daniel

@@ -1,4 +1,4 @@
-# ADR-0006: Use JUnit and Kotest for Testing
+# Use JUnit and Kotest for Testing
 
 - Status: Accepted
 - Deciders: [List everyone involved in the decision]
