@@ -1,3 +1,7 @@
+package booking.service
+
+import Http
+import booking.service.routes.v1.Book
 import eu.grand.hotel.bookingservice.BookingService
 import eu.grand.hotel.bookingservice.ports.BookingPolicyService
 import eu.grand.hotel.bookingservice.ports.HotelService

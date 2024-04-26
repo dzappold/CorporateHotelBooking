@@ -1,3 +1,5 @@
+package booking.service.routes.v1
+
 import dev.forkhandles.result4k.map
 import dev.forkhandles.result4k.recover
 import eu.grand.hotel.bookingservice.BookingService

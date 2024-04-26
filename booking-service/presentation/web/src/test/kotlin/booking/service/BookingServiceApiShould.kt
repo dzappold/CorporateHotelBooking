@@ -1,5 +1,8 @@
-import BookingServiceApiSettings.BOOKING_POLICY_SERVICE_URL
-import BookingServiceApiSettings.HOTEL_SERVICE_URL
+package booking.service
+
+import FakeHttpBookingPolicyService
+import FakeHttpHotelService
+import RecordTraces
 import actors.CompanyAdmin
 import actors.Employee
 import actors.HotelManager
@@ -10,17 +13,15 @@ import eu.grand.hotel.core.HotelId
 import eu.grand.hotel.core.HotelName
 import eu.grand.hotel.core.NumberOfRooms
 import eu.grand.hotel.core.RoomType
-import eu.grand.hotel.core.RoomType.DOUBLE
-import eu.grand.hotel.core.RoomType.SINGLE
 import eu.grand.hotel.core.roomTypesOf
 import io.kotest.assertions.asClue
 import io.kotest.matchers.and
 import io.kotest.matchers.should
 import org.http4k.cloudnative.env.Environment
 import org.http4k.core.HttpHandler
-import org.http4k.core.Method.GET
+import org.http4k.core.Method
 import org.http4k.core.Request
-import org.http4k.core.Status.Companion.OK
+import org.http4k.core.Status
 import org.http4k.core.Uri
 import org.http4k.kotest.haveBody
 import org.http4k.kotest.haveStatus
@@ -32,10 +33,9 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.Month
 import java.time.ZoneId
-import java.time.format.DateTimeFormatter.ISO_LOCAL_DATE
+import java.time.format.DateTimeFormatter
 
 private const val BOOKING_POLICY = "booking-policy"
-
 private const val HOTEL = "hotel"
 
 class BookingServiceApiShould : RecordTraces(), BookAvailableRoomScenario {
@@ -45,13 +45,18 @@ class BookingServiceApiShould : RecordTraces(), BookAvailableRoomScenario {
     private val checkIn: LocalDate = LocalDate.of(2023, Month.APRIL, 17)
     private val checkOut: LocalDate = LocalDate.of(2023, Month.APRIL, 23)
 
-
     private val env = Environment.defaults(
-        BOOKING_POLICY_SERVICE_URL of Uri.of("http://$BOOKING_POLICY:7777"),
-        HOTEL_SERVICE_URL of Uri.of("http://$HOTEL:8888")
+        BookingServiceApiSettings.BOOKING_POLICY_SERVICE_URL of Uri.of("http://$BOOKING_POLICY:7777"),
+        BookingServiceApiSettings.HOTEL_SERVICE_URL of Uri.of("http://$HOTEL:8888")
     )
+
     private val http: HttpHandler = reverseProxy(
-        BOOKING_POLICY to BookingPolicyService.FakeHttpBookingPolicyService(roomTypesOf(SINGLE, DOUBLE)),
+        BOOKING_POLICY to BookingPolicyService.FakeHttpBookingPolicyService(
+            roomTypesOf(
+                RoomType.SINGLE,
+                RoomType.DOUBLE
+            )
+        ),
         HOTEL to HotelService.FakeHttpHotelService(mapOf(hotelId to expectedHotel)),
     )
 
@@ -61,18 +66,16 @@ class BookingServiceApiShould : RecordTraces(), BookAvailableRoomScenario {
 
         val response = client(
             Request(
-                GET,
-                "/v1/bookings/employeeId/${hotelId.value}/double/${ISO_LOCAL_DATE.format(checkIn)}/${
-                    ISO_LOCAL_DATE.format(
-                        checkOut
-                    )
+                Method.GET,
+                "/v1/bookings/employeeId/${hotelId.value}/double/${DateTimeFormatter.ISO_LOCAL_DATE.format(checkIn)}/${
+                    DateTimeFormatter.ISO_LOCAL_DATE.format(checkOut)
                 }"
             )
         )
 
         // TODO: more detailed test
         "booking service response:".asClue {
-            response should (haveStatus(OK) and haveBody("me ..."))
+            response should (haveStatus(Status.OK) and haveBody("me ..."))
         }
     }
 
