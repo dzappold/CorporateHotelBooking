@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    api("dev.forkhandles:result4k")
+    api(libs.result4k)
     api(project(":core:domain"))
     testFixturesApi(testFixtures(project(":core:domain")))
 }
