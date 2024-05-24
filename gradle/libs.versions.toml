@@ -6,7 +6,7 @@ foojay-version = "0.8.0"
 kotlin-version = "2.0.0"
 
 forkhandles-version = "2.18.0.1"
-http4k-connect-version = "5.13.0.0"
+http4k-connect-version = "5.14.0.0"
 http4k-version = "5.21.0.0"
 junit-version = "5.10.2"
 kotest-version = "5.9.0"
