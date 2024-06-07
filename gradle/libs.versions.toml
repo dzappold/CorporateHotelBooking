@@ -9,7 +9,7 @@ forkhandles-version = "2.18.0.1"
 http4k-connect-version = "5.15.0.0"
 http4k-version = "5.22.0.0"
 junit-version = "5.10.2"
-kotest-version = "5.9.0"
+kotest-version = "5.9.1"
 mockk-version = "1.13.11"
 
 [libraries]
