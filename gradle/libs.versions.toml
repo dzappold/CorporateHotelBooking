@@ -10,7 +10,7 @@ http4k-connect-version = "5.18.0.0"
 http4k-version = "5.25.0.0"
 junit-version = "5.10.3"
 kotest-version = "5.9.1"
-mockk-version = "1.13.11"
+mockk-version = "1.13.12"
 
 [libraries]
 http4k-cloudevents = { module = "org.http4k:http4k-cloudevents", version.ref = "http4k-version" }
