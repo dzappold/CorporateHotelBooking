@@ -21,7 +21,7 @@ interface BookAvailableRoomScenario {
     val expectedHotel: Hotel
 
     @Test
-    fun `book a available single bed room according company policy`() {
+    fun `book an available single bed room according company policy`() {
         val today = LocalDate.now()
 
         helga.setRoom(NumberOfRooms(20), SINGLE)

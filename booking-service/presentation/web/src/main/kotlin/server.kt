@@ -1,4 +1,4 @@
-import booking.service.BookingServiceApi
+import eu.grand.hotel.bookingservice.BookingServiceApi
 import org.http4k.client.OkHttp
 import org.http4k.cloudnative.asK8sServer
 import org.http4k.cloudnative.env.Environment

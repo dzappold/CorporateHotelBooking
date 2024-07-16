@@ -1,3 +1,5 @@
+package eu.grand.hotel.bookingservice.hotel
+
 import dev.forkhandles.result4k.asResultOr
 import dev.forkhandles.result4k.map
 import dev.forkhandles.result4k.recover
@@ -11,8 +13,8 @@ import org.http4k.core.Method.GET
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.GATEWAY_TIMEOUT
 import org.http4k.core.Status.Companion.OK
-import org.http4k.core.with
 import org.http4k.format.Jackson.auto
+import org.http4k.format.Jackson.json
 import org.http4k.lens.Path
 import org.http4k.lens.nonEmptyString
 import org.http4k.routing.bind
@@ -24,7 +26,7 @@ fun HotelService.Companion.FakeHttpHotelService(hotels: Map<HotelId, Hotel> = em
 
     return routes("/v1/hotels/{hotelId}" bind GET to { request ->
         hotels[hotelId(request)].asResultOr { BookingServiceError.UnknownHotel }
-            .map { requestedHotel -> Response(OK).with(hotel of requestedHotel) }
+            .map { requestedHotel -> Response(OK).json(requestedHotel) }
             .recover { Response(GATEWAY_TIMEOUT) }
     })
 }

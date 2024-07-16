@@ -1,25 +1,22 @@
-package booking.service.routes.v1
+package eu.grand.hotel.bookingservice.routes.v1
 
 import dev.forkhandles.result4k.map
 import dev.forkhandles.result4k.recover
 import eu.grand.hotel.bookingservice.BookingService
-import eu.grand.hotel.core.Booking
 import eu.grand.hotel.core.EmployeeId
 import eu.grand.hotel.core.HotelId
 import eu.grand.hotel.core.RoomType
-import org.http4k.core.Body
 import org.http4k.core.Method.GET
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.BAD_REQUEST
 import org.http4k.core.Status.Companion.OK
-import org.http4k.core.with
-import org.http4k.format.Jackson.auto
 import org.http4k.lens.Path
 import org.http4k.lens.enum
 import org.http4k.lens.localDate
 import org.http4k.lens.nonEmptyString
 import org.http4k.routing.RoutingHttpHandler
 import org.http4k.routing.bind
+import utils.Json.json
 
 private val employeeId = Path.nonEmptyString().map(::EmployeeId, EmployeeId::value).of("employeeId")
 private val hotelId = Path.nonEmptyString().map(::HotelId, HotelId::value).of("hotelId")
@@ -31,6 +28,6 @@ fun Book(bookingService: BookingService): RoutingHttpHandler =
     "/v1/bookings/{employeeId}/{hotelId}/{roomType}/{checkIn}/{checkOut}" bind GET to { request ->
         bookingService
             .book(employeeId(request), hotelId(request), roomType(request), checkIn(request), checkOut(request))
-            .map { booking -> Response(OK).with(Body.auto<Booking>().toLens() of booking) }
+            .map { booking -> Response(OK).json(booking) }
             .recover { Response(BAD_REQUEST) }
     }

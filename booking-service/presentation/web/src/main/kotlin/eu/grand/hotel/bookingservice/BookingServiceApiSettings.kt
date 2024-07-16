@@ -1,4 +1,4 @@
-package booking.service
+package eu.grand.hotel.bookingservice
 
 import org.http4k.cloudnative.env.EnvironmentKey
 import org.http4k.lens.of

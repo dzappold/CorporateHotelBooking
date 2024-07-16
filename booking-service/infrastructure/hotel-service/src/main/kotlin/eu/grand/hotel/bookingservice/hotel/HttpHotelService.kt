@@ -1,3 +1,5 @@
+package eu.grand.hotel.bookingservice.hotel
+
 import dev.forkhandles.result4k.Failure
 import dev.forkhandles.result4k.Result4k
 import dev.forkhandles.result4k.mapFailure

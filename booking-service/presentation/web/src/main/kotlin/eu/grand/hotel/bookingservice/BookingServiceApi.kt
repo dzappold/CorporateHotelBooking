@@ -1,10 +1,10 @@
-package booking.service
+package eu.grand.hotel.bookingservice
 
-import Http
-import booking.service.routes.v1.Book
-import eu.grand.hotel.bookingservice.BookingService
+import eu.grand.hotel.bookingservice.hotel.Http
+import eu.grand.hotel.bookingservice.policy.Http
 import eu.grand.hotel.bookingservice.ports.BookingPolicyService
 import eu.grand.hotel.bookingservice.ports.HotelService
+import eu.grand.hotel.bookingservice.routes.v1.Book
 import eu.grand.hotel.core.app.AppEvents
 import eu.grand.hotel.core.app.AppIncomingHttp
 import eu.grand.hotel.core.app.AppOutgoingHttp
