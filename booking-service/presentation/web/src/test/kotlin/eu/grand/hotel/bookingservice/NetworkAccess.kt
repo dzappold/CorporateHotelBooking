@@ -12,7 +12,8 @@ import eu.grand.hotel.core.RoomTypes
 import org.http4k.config.Environment
 import org.http4k.routing.reverseProxy
 
-fun networkAccess(env: Environment, roomTypes: RoomTypes, hotelInfos: Map<HotelId, Hotel>) = reverseProxy(
-    env[BOOKING_POLICY_SERVICE_URL].authority to BookingPolicyService.FakeHttpBookingPolicyService(roomTypes),
-    env[HOTEL_SERVICE_URL].authority to HotelService.FakeHttpHotelService(hotelInfos),
-)
+fun networkAccess(env: Environment, roomTypes: RoomTypes, hotelInfos: Map<HotelId, Hotel>) =
+    reverseProxy(
+        env[BOOKING_POLICY_SERVICE_URL].authority to BookingPolicyService.FakeHttpBookingPolicyService(roomTypes),
+        env[HOTEL_SERVICE_URL].authority to HotelService.FakeHttpHotelService(hotelInfos),
+    )
