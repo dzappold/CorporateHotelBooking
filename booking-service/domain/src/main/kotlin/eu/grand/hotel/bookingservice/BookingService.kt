@@ -9,10 +9,10 @@ import eu.grand.hotel.bookingservice.BookingServiceError.InvalidBookingRange
 import eu.grand.hotel.bookingservice.ports.BookingPolicyService
 import eu.grand.hotel.bookingservice.ports.HotelService
 import eu.grand.hotel.core.Booking
-import eu.grand.hotel.core.EmployeeId
-import eu.grand.hotel.core.HotelId
+import eu.grand.hotel.core.company.EmployeeId
+import eu.grand.hotel.core.hotel.HotelId
 import eu.grand.hotel.core.ResidencePeriod
-import eu.grand.hotel.core.RoomType
+import eu.grand.hotel.core.hotel.RoomType
 import java.time.LocalDate
 
 class BookingService(private val bookingPolicyService: BookingPolicyService, private val hotelService: HotelService) {

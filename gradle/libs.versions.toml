@@ -40,6 +40,7 @@ kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest-
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin-version" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin-version" }
 mockk = { module = "io.mockk:mockk-jvm", version.ref = "mockk-version" }
+values4k = { module = "dev.forkhandles:values4k", version.ref = "forkhandles-version" }
 result4k = { module = "dev.forkhandles:result4k", version.ref = "forkhandles-version" }
 result4k-kotest = { module = "dev.forkhandles:result4k-kotest", version.ref = "forkhandles-version" }
 

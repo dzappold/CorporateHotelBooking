@@ -3,9 +3,9 @@ package actors
 import dev.forkhandles.result4k.onFailure
 import eu.grand.hotel.bookingservice.BookingService
 import eu.grand.hotel.core.Booking
-import eu.grand.hotel.core.EmployeeId
-import eu.grand.hotel.core.HotelId
-import eu.grand.hotel.core.RoomType
+import eu.grand.hotel.core.company.EmployeeId
+import eu.grand.hotel.core.hotel.HotelId
+import eu.grand.hotel.core.hotel.RoomType
 import java.time.LocalDate
 
 fun Employee.Companion.DomainEmployee(
@@ -18,5 +18,7 @@ fun Employee.Companion.DomainEmployee(
         override val hotelId: HotelId = hotelId
 
         override fun book(roomType: RoomType, checkIn: LocalDate, checkOut: LocalDate): Booking =
-            bookingService.book(employeeId, hotelId, roomType, checkIn, checkOut).onFailure { TODO("should not happen") }
+            bookingService
+                .book(employeeId, hotelId, roomType, checkIn, checkOut)
+                .onFailure { TODO("should not happen") }
     }

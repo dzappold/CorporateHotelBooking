@@ -1,9 +1,9 @@
 package actors
 
 import eu.grand.hotel.core.Booking
-import eu.grand.hotel.core.EmployeeId
-import eu.grand.hotel.core.HotelId
-import eu.grand.hotel.core.RoomType
+import eu.grand.hotel.core.company.EmployeeId
+import eu.grand.hotel.core.hotel.HotelId
+import eu.grand.hotel.core.hotel.RoomType
 import java.time.LocalDate
 
 // knows her/his id and company

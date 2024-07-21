@@ -3,9 +3,9 @@ package eu.grand.hotel.bookingservice.routes.v1
 import dev.forkhandles.result4k.map
 import dev.forkhandles.result4k.recover
 import eu.grand.hotel.bookingservice.BookingService
-import eu.grand.hotel.core.EmployeeId
-import eu.grand.hotel.core.HotelId
-import eu.grand.hotel.core.RoomType
+import eu.grand.hotel.core.company.EmployeeId
+import eu.grand.hotel.core.hotel.HotelId
+import eu.grand.hotel.core.hotel.RoomType
 import org.http4k.core.Method.GET
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.BAD_REQUEST

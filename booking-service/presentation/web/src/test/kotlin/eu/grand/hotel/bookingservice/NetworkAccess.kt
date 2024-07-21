@@ -6,9 +6,9 @@ import eu.grand.hotel.bookingservice.hotel.FakeHttpHotelService
 import eu.grand.hotel.bookingservice.policy.FakeHttpBookingPolicyService
 import eu.grand.hotel.bookingservice.ports.BookingPolicyService
 import eu.grand.hotel.bookingservice.ports.HotelService
-import eu.grand.hotel.core.Hotel
-import eu.grand.hotel.core.HotelId
-import eu.grand.hotel.core.RoomTypes
+import eu.grand.hotel.core.hotel.Hotel
+import eu.grand.hotel.core.hotel.HotelId
+import eu.grand.hotel.core.hotel.RoomTypes
 import org.http4k.config.Environment
 import org.http4k.routing.reverseProxy
 

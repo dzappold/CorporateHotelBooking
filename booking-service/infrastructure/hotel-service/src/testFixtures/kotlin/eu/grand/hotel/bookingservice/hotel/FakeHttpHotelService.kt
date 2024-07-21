@@ -5,8 +5,8 @@ import dev.forkhandles.result4k.map
 import dev.forkhandles.result4k.recover
 import eu.grand.hotel.bookingservice.BookingServiceError
 import eu.grand.hotel.bookingservice.ports.HotelService
-import eu.grand.hotel.core.Hotel
-import eu.grand.hotel.core.HotelId
+import eu.grand.hotel.core.hotel.Hotel
+import eu.grand.hotel.core.hotel.HotelId
 import org.http4k.core.Body
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method.GET

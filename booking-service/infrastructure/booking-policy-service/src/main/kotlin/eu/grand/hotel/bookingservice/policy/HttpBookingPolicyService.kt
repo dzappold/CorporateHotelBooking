@@ -5,8 +5,8 @@ import dev.forkhandles.result4k.Result4k
 import dev.forkhandles.result4k.Success
 import eu.grand.hotel.bookingservice.BookingServiceError
 import eu.grand.hotel.bookingservice.ports.BookingPolicyService
-import eu.grand.hotel.core.EmployeeId
-import eu.grand.hotel.core.RoomType
+import eu.grand.hotel.core.company.EmployeeId
+import eu.grand.hotel.core.hotel.RoomType
 import org.http4k.core.Body
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method.GET

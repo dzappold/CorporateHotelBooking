@@ -1,10 +1,10 @@
 package eu.grand.hotel.bookingservice.policy
 
 import eu.grand.hotel.bookingservice.ports.BookingPolicyService
-import eu.grand.hotel.core.EmployeeId
-import eu.grand.hotel.core.RoomType
-import eu.grand.hotel.core.RoomTypes
-import eu.grand.hotel.core.roomTypesOf
+import eu.grand.hotel.core.company.EmployeeId
+import eu.grand.hotel.core.hotel.RoomType
+import eu.grand.hotel.core.hotel.RoomTypes
+import eu.grand.hotel.core.hotel.roomTypesOf
 import org.http4k.core.Body
 import org.http4k.core.HttpHandler
 import org.http4k.core.Method.GET

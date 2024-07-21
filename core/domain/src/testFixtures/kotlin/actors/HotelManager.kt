@@ -1,7 +1,7 @@
 package actors
 
-import eu.grand.hotel.core.NumberOfRooms
-import eu.grand.hotel.core.RoomType
+import eu.grand.hotel.core.hotel.NumberOfRooms
+import eu.grand.hotel.core.hotel.RoomType
 
 // own a specific hotel
 interface HotelManager {

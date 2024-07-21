@@ -1,14 +1,14 @@
-package scenarios
+package scenarios.bookings
 
 import actors.CompanyAdmin
 import actors.Employee
 import actors.HotelManager
 import eu.grand.hotel.core.Booking
-import eu.grand.hotel.core.Hotel
-import eu.grand.hotel.core.NumberOfRooms
+import eu.grand.hotel.core.hotel.Hotel
+import eu.grand.hotel.core.hotel.NumberOfRooms
 import eu.grand.hotel.core.ResidencePeriod
-import eu.grand.hotel.core.RoomType.SINGLE
-import eu.grand.hotel.core.roomTypesOf
+import eu.grand.hotel.core.hotel.RoomType.SINGLE
+import eu.grand.hotel.core.hotel.roomTypesOf
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import java.time.LocalDate

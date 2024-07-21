@@ -1,8 +1,8 @@
 package actors
 
-import eu.grand.hotel.core.CompanyId
-import eu.grand.hotel.core.EmployeeId
-import eu.grand.hotel.core.RoomTypes
+import eu.grand.hotel.core.company.CompanyId
+import eu.grand.hotel.core.company.EmployeeId
+import eu.grand.hotel.core.hotel.RoomTypes
 
 // knows her/his company and employees
 interface CompanyAdmin {

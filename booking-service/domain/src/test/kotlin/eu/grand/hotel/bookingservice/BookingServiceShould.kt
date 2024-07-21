@@ -12,19 +12,20 @@ import dev.forkhandles.result4k.Failure
 import dev.forkhandles.result4k.Success
 import eu.grand.hotel.bookingservice.ports.BookingPolicyService
 import eu.grand.hotel.bookingservice.ports.HotelService
-import eu.grand.hotel.core.Hotel
-import eu.grand.hotel.core.HotelId
-import eu.grand.hotel.core.HotelName
-import eu.grand.hotel.core.RoomType.DOUBLE
-import eu.grand.hotel.core.RoomType.SINGLE
-import eu.grand.hotel.core.roomTypesOf
+import eu.grand.hotel.core.hotel.Hotel
+import eu.grand.hotel.core.hotel.HotelId
+import eu.grand.hotel.core.hotel.HotelName
+import eu.grand.hotel.core.hotel.RoomType.DOUBLE
+import eu.grand.hotel.core.hotel.RoomType.SINGLE
+import eu.grand.hotel.core.hotel.roomTypesOf
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import scenarios.BookAvailableRoomScenario
+import scenarios.bookings.BookAvailableRoomScenario
 import java.time.LocalDate
 
 private val hotelId = HotelId("cba27b00-0eec-43ef-953e-3123e8048735")
@@ -39,6 +40,7 @@ class BookingServiceShould : BookAvailableRoomScenario {
     override val cora: CompanyAdmin = CompanyAdmin.DomainCompanyAdmin()
 
     @Nested
+    @DisplayName("do we need mock tests at all?")
     inner class CollaborateWith {
         private val bookingPolicyService = mockk<BookingPolicyService>()
         private val hotelService = mockk<HotelService>()

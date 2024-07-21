@@ -1,10 +1,10 @@
 package eu.grand.hotel.bookingpolicyservice
 
 import dev.forkhandles.result4k.Result4k
-import eu.grand.hotel.core.CompanyId
-import eu.grand.hotel.core.EmployeeId
-import eu.grand.hotel.core.RoomType
-import eu.grand.hotel.core.RoomTypes
+import eu.grand.hotel.core.company.CompanyId
+import eu.grand.hotel.core.company.EmployeeId
+import eu.grand.hotel.core.hotel.RoomType
+import eu.grand.hotel.core.hotel.RoomTypes
 
 interface BookingPolicyService {
     fun setCompanyPolicy(companyId: CompanyId, roomTypes: RoomTypes)
