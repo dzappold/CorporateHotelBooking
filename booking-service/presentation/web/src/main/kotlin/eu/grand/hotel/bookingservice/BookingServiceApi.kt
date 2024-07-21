@@ -8,7 +8,7 @@ import eu.grand.hotel.bookingservice.routes.v1.Book
 import eu.grand.hotel.core.app.AppEvents
 import eu.grand.hotel.core.app.AppIncomingHttp
 import eu.grand.hotel.core.app.AppOutgoingHttp
-import org.http4k.cloudnative.env.Environment
+import org.http4k.config.Environment
 import org.http4k.core.HttpHandler
 import org.http4k.events.Events
 import org.http4k.routing.routes
