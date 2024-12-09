@@ -3,10 +3,9 @@ ben-manes-version = "0.51.0"
 dependency-check-version = "11.1.1"
 detekt-version = "1.23.7"
 foojay-version = "0.8.0"
-kotlin-version = "2.0.20"
+kotlin-version = "2.1.0"
 
 forkhandles-version = "2.20.0.0"
-http4k-connect-version = "5.38.0.0"
 http4k-version = "5.38.0.0"
 junit-version = "5.11.3"
 kotest-version = "5.9.1"
@@ -16,7 +15,7 @@ mockk-version = "1.13.13"
 http4k-cloudevents = { module = "org.http4k:http4k-cloudevents", version.ref = "http4k-version" }
 http4k-cloudnative = { module = "org.http4k:http4k-cloudnative", version.ref = "http4k-version" }
 http4k-config = { module = "org.http4k:http4k-config", version.ref = "http4k-version" }
-http4k-connect-redis = { module = "org.http4k:http4k-connect-storage-redis", version.ref = "http4k-connect-version" }
+http4k-connect-redis = { module = "org.http4k:http4k-connect-storage-redis", version.ref = "http4k-version" }
 http4k-contract = { module = "org.http4k:http4k-contract", version.ref = "http4k-version" }
 http4k-core = { module = "org.http4k:http4k-core", version.ref = "http4k-version" }
 http4k-failsafe = { module = "org.http4k:http4k-failsafe", version.ref = "http4k-version" }
