@@ -4,9 +4,11 @@ plugins {
 
 dependencies {
     implementation(project(":booking-service:domain"))
+    implementation(project(":core:web"))
 
-    implementation(libs.http4k.jackson)
+    implementation(libs.http4k.format.jackson)
 
     testFixturesApi(testFixtures(project(":booking-service:domain")))
-    testFixturesApi(libs.http4k.jackson)
+    testFixturesApi(project(":core:web"))
+    testFixturesApi(libs.http4k.format.jackson)
 }

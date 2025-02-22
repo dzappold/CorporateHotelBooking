@@ -1,0 +1,2 @@
+### GET
+GET http://localhost:8000/v1/bookings/42/23/SINGLE/2025-02-20/2025-03-20

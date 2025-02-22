@@ -15,7 +15,7 @@ import org.http4k.core.Request
 import org.http4k.core.Uri
 import org.http4k.core.then
 import org.http4k.filter.ClientFilters
-import org.http4k.format.Jackson.auto
+import utils.HotelBookingJsonConfiguration.auto
 
 fun HotelService.Companion.Http(hotelServiceUri: Uri, rawHttp: HttpHandler): HotelService =
     object : HotelService {

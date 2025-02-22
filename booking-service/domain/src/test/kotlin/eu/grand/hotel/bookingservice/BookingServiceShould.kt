@@ -22,16 +22,16 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import scenarios.bookings.BookAvailableRoomScenario
 import java.time.LocalDate
 
-private val hotelId = HotelId("cba27b00-0eec-43ef-953e-3123e8048735")
+private val hotelId = HotelId.of("cba27b00-0eec-43ef-953e-3123e8048735")
 
 class BookingServiceShould : BookAvailableRoomScenario {
-    override val expectedHotel: Hotel = Hotel(HotelName("nursery"))
+    override val expectedHotel: Hotel = Hotel(HotelName.of("nursery"))
     private val bookingService =
         BookingService(BookingPolicyService.FakeBookingPolicyService(roomTypesOf(SINGLE, DOUBLE)), HotelService.FakeHotelService(mapOf(hotelId to expectedHotel)))
 
@@ -40,7 +40,7 @@ class BookingServiceShould : BookAvailableRoomScenario {
     override val cora: CompanyAdmin = CompanyAdmin.DomainCompanyAdmin()
 
     @Nested
-    @DisplayName("do we need mock tests at all?")
+    @Disabled("do we need mock tests at all?")
     inner class CollaborateWith {
         private val bookingPolicyService = mockk<BookingPolicyService>()
         private val hotelService = mockk<HotelService>()

@@ -11,7 +11,7 @@ import org.http4k.core.Method.GET
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.OK
 import org.http4k.core.with
-import org.http4k.format.Jackson.auto
+import utils.HotelBookingJsonConfiguration.auto
 import org.http4k.lens.Path
 import org.http4k.lens.enum
 import org.http4k.lens.nonEmptyString

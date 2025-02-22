@@ -13,12 +13,12 @@ import org.http4k.core.Method.GET
 import org.http4k.core.Response
 import org.http4k.core.Status.Companion.GATEWAY_TIMEOUT
 import org.http4k.core.Status.Companion.OK
-import org.http4k.format.Jackson.auto
-import org.http4k.format.Jackson.json
 import org.http4k.lens.Path
 import org.http4k.lens.nonEmptyString
 import org.http4k.routing.bind
 import org.http4k.routing.routes
+import utils.HotelBookingJsonConfiguration.auto
+import utils.HotelBookingJsonConfiguration.json
 
 fun HotelService.Companion.FakeHttpHotelService(hotels: Map<HotelId, Hotel> = emptyMap()): HttpHandler {
     val hotel = Body.auto<Hotel>().toLens()

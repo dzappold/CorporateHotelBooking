@@ -43,8 +43,8 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter.ISO_LOCAL_DATE
 
 class BookingServiceApiShould : RecordTraces(), BookAvailableRoomScenario {
-    private val hotelId = HotelId("b9b1a762-79a5-486e-9490-363d8fa6e2cd")
-    override val expectedHotel: Hotel = Hotel(HotelName("Youth Hostel"))
+    private val hotelId = HotelId.of("b9b1a762-79a5-486e-9490-363d8fa6e2cd")
+    override val expectedHotel: Hotel = Hotel(HotelName.of("Youth Hostel"))
     private val clock = Clock.fixed(Instant.EPOCH, ZoneId.systemDefault())
     private val checkIn: LocalDate = LocalDate.of(2023, APRIL, 17)
     private val checkOut: LocalDate = LocalDate.of(2023, APRIL, 23)
@@ -62,7 +62,7 @@ class BookingServiceApiShould : RecordTraces(), BookAvailableRoomScenario {
         response.bodyString() shouldMatchSchema bookingServiceSchema
 
         response.shouldHaveBody(
-            containJsonKeyValue("$.hotel.hotelName.name", expectedHotel.hotelName.name)
+            containJsonKeyValue("$.hotel.hotelName.name", expectedHotel.hotelName.value)
                 .and(containJsonKeyValue("$.roomType", DOUBLE.name))
                 .and(containJsonKeyValue("$.residencePeriod.checkIn", ISO_LOCAL_DATE.format(checkIn)))
                 .and(containJsonKeyValue("$.residencePeriod.checkOut", ISO_LOCAL_DATE.format(checkOut)))
@@ -102,7 +102,7 @@ class BookingServiceApiShould : RecordTraces(), BookAvailableRoomScenario {
     override val emilia: Employee
         get() = object : Employee {
             override val employeeId: EmployeeId
-                get() = EmployeeId("employee-id-emilia")
+                get() = EmployeeId.of("employee-id-emilia")
 
             override val hotelId: HotelId
                 get() = TODO("Not yet implemented")
@@ -126,6 +126,7 @@ private fun beOneOfIgnoringCase(collection: List<String>): Matcher<String> =
         }
     }
 
+@Suppress("OPT_IN_USAGE")
 private val bookingServiceSchema
     get() = jsonSchema {
         obj {

@@ -13,13 +13,13 @@ import org.http4k.core.Status.Companion.OK
 import org.http4k.lens.Path
 import org.http4k.lens.enum
 import org.http4k.lens.localDate
-import org.http4k.lens.nonEmptyString
+import org.http4k.lens.value
 import org.http4k.routing.RoutingHttpHandler
 import org.http4k.routing.bind
-import utils.Json.json
+import utils.HotelBookingJsonConfiguration.json
 
-private val employeeId = Path.nonEmptyString().map(::EmployeeId, EmployeeId::value).of("employeeId")
-private val hotelId = Path.nonEmptyString().map(::HotelId, HotelId::value).of("hotelId")
+private val employeeId = Path.value(EmployeeId).of("employeeId")
+private val hotelId = Path.value(HotelId).of("hotelId")
 private val roomType = Path.enum<RoomType>(false).of("roomType")
 private val checkIn = Path.localDate().of("checkIn")
 private val checkOut = Path.localDate().of("checkOut")
