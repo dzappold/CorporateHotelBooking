@@ -2,6 +2,8 @@ import org.gradle.api.initialization.resolve.RepositoriesMode.FAIL_ON_PROJECT_RE
 
 rootProject.name = "Corporate Hotel Booking Kata"
 
+includeBuild("build-logic")
+
 "core".apply {
     includeModule("domain")
     includeModule("web")

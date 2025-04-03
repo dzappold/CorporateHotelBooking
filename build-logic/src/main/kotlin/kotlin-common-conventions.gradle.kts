@@ -40,8 +40,10 @@ dependencies {
 
     testFixturesApi(platform("org.junit:junit-bom:$junitVersion"))
     testFixturesApi("org.junit.jupiter:junit-jupiter-api")
+    testFixturesApi("org.junit.jupiter:junit-jupiter")
     testFixturesApi("org.junit.jupiter:junit-jupiter-params")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     testFixturesApi("io.mockk:mockk-jvm:$mockkVersion") {
         exclude("junit", "junit")
