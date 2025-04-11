@@ -6,7 +6,7 @@ foojay-version = "0.8.0"
 kotlin-version = "2.1.20"
 
 forkhandles-version = "2.22.2.1"
-http4k-version = "6.5.4.0"
+http4k-version = "6.5.5.1"
 junit-version = "5.12.1"
 kotest-version = "5.9.1"
 mockk-version = "1.14.0"
@@ -16,6 +16,7 @@ http4k-api-openapi = { module = "org.http4k:http4k-api-openapi", version.ref = "
 http4k-client-okhttp = { module = "org.http4k:http4k-client-okhttp", version.ref = "http4k-version" }
 http4k-connect-redis = { module = "org.http4k:http4k-connect-storage-redis", version.ref = "http4k-version" }
 http4k-core = { module = "org.http4k:http4k-core", version.ref = "http4k-version" }
+http4k-connect-core = { module = "org.http4k:http4k-connect-core", version.ref = "http4k-version" }
 http4k-format-jackson = { module = "org.http4k:http4k-format-jackson", version.ref = "http4k-version" }
 http4k-ops-failsafe = { module = "org.http4k:http4k-ops-failsafe", version.ref = "http4k-version" }
 http4k-platform-core = { module = "org.http4k:http4k-platform-core", version.ref = "http4k-version" }
