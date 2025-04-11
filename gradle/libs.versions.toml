@@ -6,8 +6,8 @@ foojay-version = "0.8.0"
 kotlin-version = "2.1.20"
 
 forkhandles-version = "2.22.2.1"
-http4k-version = "6.5.6.0"
-junit-version = "5.12.1"
+http4k-version = "6.5.6.1"
+junit-version = "5.12.2"
 kotest-version = "5.9.1"
 mockk-version = "1.14.0"
 
