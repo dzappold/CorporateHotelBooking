@@ -9,7 +9,7 @@ forkhandles-version = "2.22.2.1"
 http4k-version = "6.6.1.0"
 junit-version = "5.12.2"
 kotest-version = "5.9.1"
-mockk-version = "1.14.0"
+mockk-version = "1.14.2"
 
 [libraries]
 http4k-api-openapi = { module = "org.http4k:http4k-api-openapi", version.ref = "http4k-version" }
