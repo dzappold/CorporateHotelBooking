@@ -5,7 +5,7 @@ detekt-version = "1.23.8"
 foojay-version = "0.8.0"
 kotlin-version = "2.1.20"
 
-forkhandles-version = "2.22.2.1"
+forkhandles-version = "2.22.3.0"
 http4k-version = "6.6.1.0"
 junit-version = "5.12.2"
 kotest-version = "5.9.1"
