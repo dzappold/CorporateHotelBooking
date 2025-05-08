@@ -70,7 +70,7 @@ pluginManagement {
                 "com.github.ben-manes.versions" -> useVersion(benManesVersion)
                 "io.gitlab.arturbosch.detekt" -> useVersion(detektVersion)
                 "org.owasp.dependencycheck" -> useVersion(dependencyCheckVersion)
-                "org.gradle.toolchains.foojay-resolver-convention"->useVersion(foojayVersion)
+                "org.gradle.toolchains.foojay-resolver-convention" -> useVersion(foojayVersion)
             }
         }
     }
