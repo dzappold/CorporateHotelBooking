@@ -2,8 +2,8 @@
 ben-manes-version = "0.52.0"
 dependency-check-version = "12.1.3"
 detekt-version = "1.23.8"
-foojay-version = "0.10.0"
-kotlin-version = "2.1.21"
+foojay-version = "1.0.0"
+kotlin-version = "2.2.0"
 
 forkhandles-version = "2.22.3.0"
 http4k-version = "6.15.1.0"
