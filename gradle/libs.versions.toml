@@ -5,10 +5,10 @@ detekt-version = "1.23.8"
 foojay-version = "1.0.0"
 kotlin-version = "2.2.0"
 
-forkhandles-version = "2.22.3.0"
+forkhandles-version = "2.22.4.0"
 http4k-version = "6.15.1.0"
-junit-version = "5.13.4"
-kotest-version = "6.0.0.M5"
+junit-version = "6.0.0-M2"
+kotest-version = "6.0.0.M6"
 mockk-version = "1.14.5"
 
 [libraries]
