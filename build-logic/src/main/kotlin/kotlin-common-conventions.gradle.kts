@@ -97,7 +97,6 @@ tasks {
     }
 
     withType<Detekt>().configureEach {
-        // Target version of the generated JVM bytecode. It is used for type resolution.
         jvmTarget = java.toolchain.languageVersion.get().toString()
     }
 }
