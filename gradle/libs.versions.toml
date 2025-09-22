@@ -1,6 +1,6 @@
 [versions]
 ben-manes-version = "0.52.0"
-dependency-check-version = "12.1.3"
+dependency-check-version = "12.1.5"
 detekt-version = "1.23.8"
 foojay-version = "1.0.0"
 kotlin-version = "2.2.0"
