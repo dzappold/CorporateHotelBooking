@@ -8,7 +8,7 @@ kotlin-version = "2.2.0"
 forkhandles-version = "2.23.0.0"
 http4k-version = "6.20.2.1"
 junit-version = "6.0.1"
-kotest-version = "6.0.4"
+kotest-version = "6.0.5"
 mockk-version = "1.14.6"
 
 [libraries]
